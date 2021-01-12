@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "lib",
   "scripts": {
-    "build": "bash start.sh",
+    "build": "bash build.sh",
     "start": "node lib"
   },
   "dependencies": {
