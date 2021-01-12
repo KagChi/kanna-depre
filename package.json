@@ -1,0 +1,20 @@
+{
+  "name": "kanna",
+  "version": "0.0.1",
+  "main": "lib",
+  "scripts": {
+    "build": "bash start.sh",
+    "start": "node lib"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "discord.js": "^12.5.1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.5.1",
+    "rimraf": "^3.0.2"
+  }
+}
