@@ -15,7 +15,7 @@ module.exports = class KannaClient extends Client
            categories = await readdir(join(__dirname, "..", "commands"));
            for category of categories 
              commands = await readdir(join(__dirname, "..", "commands", category));
-             for commandFile of commands 
+             for commandFile in commands 
                 command = require """../commands/#{category}/#{commandFile}""";
                 command.config.category = category;
                 this.commands.set(command.config.name, command);
