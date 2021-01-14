@@ -3,28 +3,31 @@
 { promises , readdirSync } = require 'fs'
 { readdir } = promises
 module.exports = class KannaClient extends Client
-       constructor: () ->
-         super args
+       constructor: (opt) ->
+         super opt
          @prefix = 'k!'
          @commands = new Collection()
-         build: () ->
-          @loadListener()
-          @login(process.env.token)
 
-         loadCommands: ->
+
+        build: () ->
+          @loadListener()
+          @loadCommands()
+          @login("NzI2Mzc5NTM1MTg0MTY2OTQz.XvcbqA.OI1fM2yEO40q4Ik2K-3JMHplb8w")
+
+        loadCommands: ->
            categories = await readdir(join(__dirname, "..", "commands"));
-           for category of categories 
+           for category in categories 
              commands = await readdir(join(__dirname, "..", "commands", category));
              for commandFile in commands 
                 command = require """../commands/#{category}/#{commandFile}""";
-                command.config.category = category;
-                this.commands.set(command.config.name, command);
+                command.category = category;
+                this.commands.set(command.name, command);
             
-         loadListener: ->
+        loadListener: ->
            Listeners = readdirSync "./lib/listeners";
-           for events in Listeners
+           for events of Listeners
               listeners = require """../listeners/#{events}"""
-              return this.on(events.split('.')[0], (...args) => listeners.run(this, ...args));
+              this.on listeners.name, (...args) -> listeners.run(this, ...args);
         
       
       
