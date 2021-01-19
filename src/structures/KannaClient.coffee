@@ -12,7 +12,7 @@ module.exports = class KannaClient extends Client
         build: () ->
           @loadListener()
           @loadCommands()
-          @login("NzI2Mzc5NTM1MTg0MTY2OTQz.XvcbqA.OI1fM2yEO40q4Ik2K-3JMHplb8w")
+          @login(process.env.token)
 
         loadCommands: ->
            categories = await readdir(join(__dirname, "..", "commands"));
