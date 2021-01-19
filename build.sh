@@ -3,7 +3,7 @@
 #Original Code By Rin!#8240, with some modification.
 
 # Remove the old lib folder first
-    echo "[BUILD] Remove the old dist folder..."
+    echo "[BUILD] Remove the old lib folder..."
     rimraf dist
     echo "[BUILD] Finish removed the old dist folder"
 sleep 2
