@@ -5,7 +5,7 @@
 # Remove the old lib folder first
     echo "[BUILD] Remove the old lib folder..."
     rimraf dist
-    echo "[BUILD] Finish removed the old dist folder"
+    echo "[BUILD] Finish removed the old lib folder"
 sleep 2
 # Builder
 
